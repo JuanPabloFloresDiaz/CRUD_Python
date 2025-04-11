@@ -12,6 +12,7 @@ def crear_persona():
 
 # Función para leer las personas
 def leer_personas():
+    # Verifica si hay personas registradas
     if not personas:
         print("No hay personas registradas.")
     else:
@@ -22,6 +23,7 @@ def leer_personas():
 
 # Función para actualizar una persona
 def actualizar_persona():
+    # Verifica si hay personas registradas
     if not personas:
         print("No hay personas registradas para actualizar.")
         return
@@ -35,13 +37,14 @@ def actualizar_persona():
 
 # Función para eliminar una persona
 def eliminar_persona():
+    # Verifica si hay personas registradas
     if not personas:
         print("No hay personas registradas para eliminar.")
         return
     leer_personas()
     indice = Teclado.Teclado.read_integer("Ingrese el índice de la persona a eliminar:",
                                   min_value=0, max_value=len(personas)-1)
-    # Confirmación de acción
+    # Confirmación de acción de eliminar
     if Teclado.Teclado.read_boolean("¿Está seguro de que desea eliminar la persona?"):
         eliminado = personas.pop(indice)
         print(f"Persona '{eliminado}' eliminada exitosamente.")
@@ -69,7 +72,7 @@ def main():
         elif opcion == 4:
             eliminar_persona()
         elif opcion == 5:
-            # Confirmación antes de salir
+            # Confirmación antes de acción de salir
             if Teclado.Teclado.read_boolean("¿Está seguro de que desea salir del programa?"):
                 print("Saliendo del programa...")
                 break
